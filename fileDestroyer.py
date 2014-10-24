@@ -10,13 +10,18 @@ while True:
 	configuration = raw_input("Are you sure to continue?")
 	
 	if configuration.lower() == "yes":
+		f = open(fileName, "r+")
+		f.write("A"*len(f.read()))
+		
 		os.remove(fileName)
 		print("{} has been destroyed.".format(fileName))
+		
 		quit()
 		
 	elif configuration.lower() == "no":
 		print("Operation canceled.")
-		quit()
+		
+		ssquit()
 	
 	else:
 		print("You should type 'yes' or 'no'.")
